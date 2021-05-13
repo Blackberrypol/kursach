@@ -1,9 +1,20 @@
 <?php 
 
+include(__DIR__.'/Env.php');
+use DevCoder\DotEnv;
+
+if (!getenv("DEPLOYMENT")){
+    (new DotEnv(__DIR__ . '/.env'))->load();
+}
+
+$home = getenv("SITE_ADRESS");
+$home = array_slice(explode('/',$home), 3);
+$home = implode('/',$home);
+
 $routes = Array();
 $basepath = '/';
 array_push($routes,Array(
-    'expression' => "/",
+    'expression' => "/".$home,
     'function' => function(){
         include_once("home.php");},
     'method' => 'GET'
@@ -27,6 +38,7 @@ foreach($routes as $route){
     else
       echo "405";
   }else
-    echo "404";
+    echo $route["expression"];
 }
+echo $path;
 ?>

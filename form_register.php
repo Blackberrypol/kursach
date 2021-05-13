@@ -52,7 +52,9 @@
 <body>
 
 <?php
+
     require_once("header.php");
+
 ?>
 <div class="block_for_messages">
     <?php

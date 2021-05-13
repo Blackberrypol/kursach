@@ -103,7 +103,7 @@
                                         'HS512'
                                     );
 
-                    setcookie("jwt", $token, $expire);
+                    setcookie("jwt", $token, $expire,'/');
 
 					$result_query_select->close();
 
@@ -135,7 +135,7 @@ function redirect_to($message, $address_page)
     $_SESSION["server_message"] = $message;
 
     header("HTTP/1.1 301 Moved Permanently");
-	header("location: ".getenv("SITE_ADRESS")."/".$address_page);
+	header("location: ".getenv("SITE_ADRESS").$address_page);
 	die();
 
     exit();

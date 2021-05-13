@@ -4,7 +4,7 @@ session_start();
 $fl = $_SESSION['flag'];
 if( isset( $_POST['goo'] ) )
     {
-      include(__DIR__.'/Env.php');
+      include_once(__DIR__.'/Env.php');
       use DevCoder\DotEnv;
       if (!getenv("DEPLOYMENT")){
         
